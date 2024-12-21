@@ -4,36 +4,24 @@ import { getFirestore } from "firebase-admin/firestore";
 import BaseLayout from '../layouts/Base.astro';
 import "../styles/global.css";
 
+const matches = import.meta.glob("../content/events/*.md", {eager: true});
+const eventFiles = Object.values(matches);
 const pageTitle = 'Leaderboard'
-interface Scores {
-  id: string;
-  insti: string;
-  battle_of_bands: number;
-}
-
-const db = getFirestore(app);
-const scoresRef = db.collection("scoreboard");
-const scoresSnapshot = await scoresRef.get();
-const scores = scoresSnapshot.docs.map((doc) => ({
-  id: doc.id,
-  ...doc.data(),
-})) as Scores[];
-
-const events = ["battle_of_bands"];
+const events = eventFiles.map((e) => (e.frontmatter.name));
 const numEvents = events.length;
-
-const numScores = scores.length;
+const instCodes = ["iiserk", "iiserp", "iiserm", "iiserb", "iisertvm", "iisertir", "iiserbmp", "iisc", "cebs"];
+const institutes = ["IISER Kolkata", "IISER Pune", "IISER Mohali", "IISER Bhopal", "IISER Thiruvananthapuram", "IISER Triupati", "IISER Berhampore", "IISc Bengaluru", "CEBS"];
+const numInst = instCodes.length;
 var totals =[];
-for (let i = 0; i < numScores; ++i) {
-  let s = 0
+for (let i = 0; i < numInst; ++i) {
+  let s = 0;
   for (let j = 0; j < numEvents; ++j) {
-    s += Math.max(scores[i][events[j]], 0);
+    s = s + eventFiles[j]["frontmatter"][instCodes[i]];
   }  
   totals.push(s);
 }
 
-const institutes = scores.map((score: Scores) => (score.insti));
-var board = scores.map((score: Scores, i) => ([score.insti, totals[i]]));
+var board = institutes.map((ins, i) => ([ins, totals[i]]));
 const compare = (a: (string | number)[], b: (string | number)[]) => {
     if (a[1] >= b[1]) return -1;
     else return 1;
@@ -42,26 +30,20 @@ board.sort(compare);
 
 var eventBoards = []; 
 for (let i = 0; i < numEvents; ++i) {
-  eventBoards.push(scores.map((score: Scores) => ([score.insti, score[events[i]]])));
+  eventBoards.push(instCodes.map((id, j) => ([institutes[j], eventFiles[i]["frontmatter"][id]])));
 }
 for (let i = 0; i < numEvents; ++i) {
   eventBoards[i].sort(compare);
-}
-
-function codeToName(code: string) {
-  let name = code.toUpperCase();
-  name = name.replace(/_/g, " ");
-  return name;
 }
 ---
 
 <BaseLayout title= { pageTitle }>
   <div class="main-container">
-    <h1>{ pageTitle }</h1>
+    <h1>Leaderboard</h1>
     <select name="category" class="cat-select">
       <option value="total" selected>OVERALL</option>
       {
-        events.map((e) => (<option value={e}>{codeToName(e)}</option>))
+        events.map((e) => (<option value={e}>{e}</option>))
       }
     </select>
     <ul class="board" id="total">
@@ -74,7 +56,7 @@ function codeToName(code: string) {
     </ul>
     {
       eventBoards.map((eventBoard, i) => (
-        <ul class="board event" id={events[i]}>
+        <ul class="board event" id={"event"+i}>
           <li class="thead"> <span class="institute"> Institute </span> <span class="score">Score</span></li>
           {
             eventBoard.map((rec) => (
@@ -155,10 +137,16 @@ function codeToName(code: string) {
   const allBoards = document.querySelectorAll(".board");
   const cat = document.querySelector("select");
   cat?.addEventListener("change", (e) => {
-    const sel = cat.value;
+    const sel = cat.selectedIndex - 1;
     allBoards.forEach((b) => b.setAttribute("style", "display: none;"));
-    const currentBoard = document.querySelector("#"+sel);
-    currentBoard?.setAttribute("style", "display: block");
+    if (sel === -1)  {
+      const currentBoard = document.querySelector("#total");
+      currentBoard?.setAttribute("style", "display: block");
+    } else {
+      const currentBoard = document.querySelector("#event"+sel);
+      currentBoard?.setAttribute("style", "display: block");
+
+    }
   });
   eBoards.forEach((b) => b.setAttribute("style", "display: none;"));
 </script>
