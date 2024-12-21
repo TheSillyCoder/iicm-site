@@ -1,0 +1,135 @@
+---
+import "../styles/global.css";
+
+interface Props {
+    active: string;
+}
+
+const { active } = Astro.props;
+---
+<a class="logo" href="/">
+    <img src="/nobg-small-logo.avif" alt="Lexis Logo">
+</a>
+<button><i class="fas fa-bars"></i></button>
+<nav>
+    <ul>
+        <!-- <li><a href = "/events" class = {active === "Events" ? "active" : ""}>Events</a></li> -->
+        <li><a href = "/schedule" class = {active === "Schedule" ? "active" : ""}>Schedule</a></li>
+        <li><a href = "/leaderboard" class = {active === "Leaderboard" ? "active" : ""}>Leaderboard</a></li>
+        <li><a href = "/menu" class = {active === "Menu" ? "active" : ""}>Menu</a></li>
+    </ul>
+</nav>
+
+<style>
+
+button {
+    display: none;
+}
+.logo, img {
+    background: transparent;
+}
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    font-size: 1.25rem;
+    background-color: black; 
+    height: 5rem;
+    z-index: 98;
+}
+
+img {
+    position: fixed;
+    top: 0;
+    left: 2rem;
+    height: 5rem;
+    z-index: 100;
+}
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-right: 3rem;
+}
+
+li {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+li > a {
+    color: white;
+    transition: all ease-in-out 100ms;
+}
+
+li > a:hover {
+    color: var(--accent-color-3);
+}
+
+.active {
+    color: var(--accent-color) !important;
+}
+
+@media (max-width: 850px) {
+    button {
+        display: block;
+        position: fixed;
+        right: 1rem;
+        top: 1rem;
+        background-color: transparent;
+        color: white;
+        border: none;
+        padding: 0;
+        font-size: 2rem;
+        z-index: 99;
+    }
+    button::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5rem;
+        background-color: black;
+        z-index: -1;
+    }
+    nav {
+        justify-content: center;
+        position: fixed;
+        height: 100dvh;
+        width: 100%;
+        top: -1000px;
+        left: 0;
+        transition: 100ms ease-in-out;
+    }
+    nav[data-visible="true"] {
+        top: 0;
+        height: 100dvh;
+    }
+
+    ul {
+        flex-direction: column;
+        margin-right: 0;
+    }
+
+    li {
+        padding-left: 0;
+    }
+}
+</style>
+
+<script>
+let visible = false;
+const navToggleBtn = document.querySelector("button")
+const navBar = document.querySelector("nav");
+
+navToggleBtn?.addEventListener("click", () => {
+    !visible ?  navToggleBtn.innerHTML = "<i class='fa-solid fa-xmark'></i>" : navToggleBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    visible = !visible;
+    navBar?.setAttribute("data-visible", visible ? "true" : "false")
+})
+</script>

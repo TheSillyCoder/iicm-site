@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/Base.astro';
+import '../styles/menu.css';
+
+const pageTitle = 'Menu'
+---
+
+<BaseLayout title= { pageTitle }>
+<div class='header'>Today's Menu <span class='timestamp'>(Last Updated at 03:11 on 22-12-2024)</span></div>
+<div class='menu-cont'>
+<div class='time'>
+	<span class='type'> Breakfast: </span>
+		<div class='items'>
+			<span class='item'>Not Selected Yet</span>
+		</div>
+</div>
+<div class='time'>
+	<span class='type'> Lunch: </span>
+		<div class='items'>
+		</div>
+</div>
+<div class='time'>
+	<span class='type'> Snacks: </span>
+		<div class='items'>
+		</div>
+</div>
+<div class='time'>
+	<span class='type'> Dinner: </span>
+		<div class='items'>
+		</div>
+</div>
+</div>
+</BaseLayout>

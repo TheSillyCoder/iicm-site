@@ -1,0 +1,48 @@
+:root {
+    --special-color: hsl(34, 100%, 80%);
+}
+
+.header {
+    text-align: center;
+    font-size: 3ch;
+    font-weight: 800;
+}
+.timestamp {
+    font-size: 0.75ch;
+    font-style: italic;
+    color: var(--accent-color-2);
+}
+.menu-cont {
+    width: 100%;
+    gap: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.time {
+    padding: 3em;
+}
+.type {
+    width: 100%;
+    font-size: 2.5ch;
+    text-align: left;
+    font-weight: 800;
+    color: var(--accent-color);
+}
+.items {
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+.special {
+    color: var(--special-color);
+    font-weight: 800;
+}
+@media (max-width: 850px) {
+    .menu-cont {
+        grid-template-columns: 1fr;
+    }
+    .header {
+        display: flex;
+        flex-direction: column;
+    }
+}

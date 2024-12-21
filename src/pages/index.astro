@@ -1,11 +1,106 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/Base.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const pageTitle = 'Home'
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title= { pageTitle }>
+    <div class="vid-container">
+        <video autoplay muted id="pcVideo">
+            <source src="/promo_init.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop id="mdVideo">
+            <source src="/promo_init_mobile.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="hero">
+        <h3>IISER Kolkata Welcomes You to </h3>
+        <img src="/dark-logo.png"/>
+        <h2> The 5th edition of Inter INCI Cultural meet </h2>
+        <h3> 26th - 29th December, 2024</h3>
+    </div>
+    <div class="about">
+        <img src="/institutes.jpg"/>
+        <span>
+            <h2>About IICM</h2>
+            <p>Started in 2018 by the Indian Institute of Science Education and Research (IISER) Kolkata and continued by IISER Thiruvananthapuram in 2019, IICM, or the Inter-IISER Cultural Meet represents a once-a-year aggregation of talent and enthusiasm, to promote cultural exchanges amongst young and bright minds engaged in STEM. We IISER Kolkata, the organizing committee of the 2024 edition of IICM, have planned a 4-day schedule, from 26th to 29th December, packed with a plethora of cultural activities and competitions, ranging from Dance, Music, Art to Literature, Dramatics, and Design!</p>
+        </span>
+    </div>
+</BaseLayout>
+
+<style>
+    .vid-container {
+        padding-top: 6rem;
+        width: 100%;
+        min-height: 100dvh;
+        overflow: hidden;
+    }
+    #pcVideo, #mdVideo {
+        position: absolute;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    #pcVideo { 
+        display: block;
+    }
+    #mdVideo {
+        display: none;
+    }
+    .hero {
+        max-width: 90vw;
+        width: 100ch;
+        padding-top: 6rem;
+        height: 90dvh;
+        text-align: center;
+    }
+    .hero img {
+        max-width: 80%;
+    }
+
+    .about {
+        max-width: 90vw;
+        width: 90%;
+        min-height: 90dvh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* place-items: center; */
+        gap: 5em;
+        min-height: 60dvh;
+    }
+    
+    img {
+        max-width: 80ch;
+        max-height: 80ch;
+    }
+    .about img {
+        max-width: 90ch;
+    }
+
+    @media (max-width: 850px) {
+        #mdVideo {
+            display: block;
+        }
+        #pcVideo {
+            display: none;
+        }
+        .about {
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column-reverse;
+            padding-bottom: 1em;
+        }
+    }
+</style>
+<script>
+    document.querySelector('video')?.addEventListener('ended',ended,false);
+    const vidcont = document.querySelector(".vid-container");
+    function ended(e?: Event) {
+        // What you want to do after the event
+        vidcont?.setAttribute("style", "display:none;");
+    }
+</script>
