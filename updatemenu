@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+cd /home/anon/github/iicm-site
+git pull origin main
+python3 updateMenu.py
+git add src/pages/menu.astro
+git commit -m 'updated menu [automated]'
+git push origin main
