@@ -1,1 +1,1 @@
-0,30 * * * * /home/anon/.local/bin/updatemenu
+*/20 8-11,12-14,20-22 * * * /home/anon/.local/bin/updatemenu
