@@ -37,12 +37,12 @@
     color: var(--special-color);
     font-weight: 800;
 }
+.header {
+    display: flex;
+    flex-direction: column;
+}
 @media (max-width: 850px) {
     .menu-cont {
         grid-template-columns: 1fr;
-    }
-    .header {
-        display: flex;
-        flex-direction: column;
     }
 }
