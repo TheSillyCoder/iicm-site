@@ -9,8 +9,8 @@ const eventFiles = Object.values(matches);
 const pageTitle = 'Leaderboard'
 const events = eventFiles.map((e) => (e.frontmatter.name));
 const numEvents = events.length;
-const instCodes = ["iiserk", "iiserp", "iiserm", "iiserb", "iisertvm", "iisertir", "iiserbmp", "iisc", "cebs"];
-const institutes = ["IISER Kolkata", "IISER Pune", "IISER Mohali", "IISER Bhopal", "IISER TVM", "IISER Triupati", "IISER Berhampore", "IISc Bengaluru", "CEBS"];
+const instCodes = ["iiserk", "iiserp", "iiserm", "iiserb", "iisertvm", "iisertir", "iiserbmp", "iisc"];
+const institutes = ["IISER Kolkata", "IISER Pune", "IISER Mohali", "IISER Bhopal", "IISER TVM", "IISER Triupati", "IISER Berhampore", "IISc Bengaluru"];
 const numInst = instCodes.length;
 
 const scores = instCodes.map((ins) => (eventFiles.map((e) => Math.max(Number(e["frontmatter"][ins]), 0))));
@@ -103,7 +103,7 @@ for (let i = 0; i < numEvents; ++i) {
     font-weight: 800;
     text-transform: uppercase;
     color: var(--accent-color);
-    border: 2px solid var(--accent-color);
+    border: none;
   }
   li {
     border: 2px solid var(--accent-color-2);
@@ -123,10 +123,9 @@ for (let i = 0; i < numEvents; ++i) {
     li:hover {
       border-color: var(--accent-color);
     }
-  .institute{
-    text-align: center;
-
-  } 
+    .institute{
+      text-align: center;
+    } 
   }
 </style>
 <script>
