@@ -2,7 +2,7 @@
 
 cd /home/anon/github/iicm-site
 git pull origin main
-python3 updateMenu.py
+/home/anon/miniconda3/bin/python3 updateMenu.py
 git add src/pages/menu.astro
-git commit -m 'updated menu [automated]'
+git commit -m "automated menu-update $(timedatectl | grep -i 'local time' | awk -F : '{$1=""; print $0}')"
 git push origin main
