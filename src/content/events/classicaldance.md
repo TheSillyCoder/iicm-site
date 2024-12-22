@@ -1,6 +1,6 @@
 ---
 name: Classical Dance
-time: 12:00 PM
+time: 12:00 Noon
 end: 2:00 PM
 date: Dec 26
 venue: RNT Auditorium
