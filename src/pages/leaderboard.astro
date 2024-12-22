@@ -9,8 +9,8 @@ const eventFiles = Object.values(matches);
 const pageTitle = 'Leaderboard'
 const events = eventFiles.map((e) => (e.frontmatter.name));
 const numEvents = events.length;
-const instCodes = ["iiserk", "iiserp", "iiserm", "iiserb", "iisertvm", "iisertir", "iiserbmp", "iisc"];
-const institutes = ["IISER Kolkata", "IISER Pune", "IISER Mohali", "IISER Bhopal", "IISER TVM", "IISER Triupati", "IISER Berhampore", "IISc Bengaluru"];
+const instCodes = ["iiserk", "iiserp", "iiserm", "iiserb", "iisertvm", "iisertir", "iiserbmp", "iisc", "niser"];
+const institutes = ["IISER Kolkata", "IISER Pune", "IISER Mohali", "IISER Bhopal", "IISER TVM", "IISER Triupati", "IISER Berhampore", "IISc Bengaluru", "NISER Bhubaneshwar"];
 const numInst = instCodes.length;
 
 const scores = instCodes.map((ins) => (eventFiles.map((e) => Math.max(Number(e["frontmatter"][ins]), 0))));
