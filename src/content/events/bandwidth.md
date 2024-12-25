@@ -1,9 +1,9 @@
 ---
-name: Dance Battle (Round 2)
+name: Bandwidth (Screening)
 date: Dec 27
-time: 9:00 PM
-end: 11:00 PM
-venue: Open Air Stage
+venue: MN Saha
+time: 12:00 Noon
+end: 7:00 PM
 iiserk: 0
 iiserp: 0
 iiserm: 0

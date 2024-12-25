@@ -1,6 +1,6 @@
 ---
 name: General Quiz
-time: 12:00 Noon
+time: 1:00 PM
 end: 5:00 PM
 venue: Lecture Hall Complex
 date: Dec 28

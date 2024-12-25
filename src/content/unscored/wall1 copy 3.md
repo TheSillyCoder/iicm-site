@@ -1,6 +1,6 @@
 ---
-name: Wall Painting
-time: 2:00 PM
+name: Wall Painting (Judging)
+time: 9:00 AM
 end: 9:00 PM
 date: Dec 28
 venue: NSCB-ICVS Basement Walls

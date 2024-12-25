@@ -1,5 +1,5 @@
 ---
-name: Debate (Round 2)
+name: Debate (Semi Finals)
 date: Dec 28
 venue: Lecture Hall Complex
 time: 9:00 AM

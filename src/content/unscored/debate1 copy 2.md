@@ -1,9 +1,9 @@
 ---
-name: Poetry
+name: Debate (Finals)
+date: Dec 28
 venue: Lecture Hall Complex
-time: 9:00 AM
-end: 9:00 PM
-date: Dec 27
+time: 12:00 Noon
+end: 1:00 PM
 iiserk: 0
 iiserp: 0
 iiserm: 0

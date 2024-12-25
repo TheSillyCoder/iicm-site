@@ -1,5 +1,5 @@
 ---
-name: Fashion Walk
+name: Fashion Show
 venue: MN Saha Auditorium
 date: Dec 29
 time: 2:00 PM

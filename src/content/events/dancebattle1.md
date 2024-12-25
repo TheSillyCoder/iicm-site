@@ -1,5 +1,5 @@
 ---
-name: Dance Battle (Round 1)
+name: Dance Battle
 date: Dec 27
 time: 6:30 PM
 end: 8:30 PM
