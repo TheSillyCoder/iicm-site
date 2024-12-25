@@ -10,10 +10,10 @@ let datesArray = ["Dec 26", "Dec 27", "Dec 28", "Dec 29"];
 let eventsArray = new Array([], [], [], [], []);
 
 events.forEach((event) => {
-    if (event.frontmatter.date === datesArray[0]) eventsArray[0].push([event.frontmatter.time, event.frontmatter.name, event.frontmatter.venue, event.end]);
-    else if (event.frontmatter.date === datesArray[1]) eventsArray[1].push([event.frontmatter.time, event.frontmatter.name, event.frontmatter.venue, event.end]);
-    else if (event.frontmatter.date === datesArray[2]) eventsArray[2].push([event.frontmatter.time, event.frontmatter.name, event.frontmatter.venue, event.end]);
-    else if (event.frontmatter.date === datesArray[3]) eventsArray[3].push([event.frontmatter.time, event.frontmatter.name, event.frontmatter.venue, event.end]);
+    if (event.frontmatter.date === datesArray[0]) eventsArray[0].push([event.frontmatter.time, event.frontmatter.name, event.frontmatter.venue, event.frontmatter.end, event.frontmatter.live]);
+    else if (event.frontmatter.date === datesArray[1]) eventsArray[1].push([event.frontmatter.time, event.frontmatter.name, event.frontmatter.venue, event.frontmatter.end, event.frontmatter.live]);
+    else if (event.frontmatter.date === datesArray[2]) eventsArray[2].push([event.frontmatter.time, event.frontmatter.name, event.frontmatter.venue, event.frontmatter.end, event.frontmatter.live]);
+    else if (event.frontmatter.date === datesArray[3]) eventsArray[3].push([event.frontmatter.time, event.frontmatter.name, event.frontmatter.venue, event.frontmatter.end, event.frontmatter.live]);
 });
 
 const timeToNum = (time:string) => {
@@ -46,7 +46,7 @@ eventsArray[3].sort(compare);
             <ul>
                 {eventsArray[i].map((event) => (
                 <li>
-                    <span class="time"> { event[0] }</span>
+                    <span class="time"> { event[0] } <br><span class="live">{event[4]}</span></span>
                     <span class="name">{ event[1] }</span>
                     <span class="location">{ event[2] }</span>
                 </li>))}
@@ -128,6 +128,11 @@ eventsArray[3].sort(compare);
         height: 0.75rem;
         border-radius: 50%;
         background: var(--accent-color);
+    }
+    .live {
+        text-transform: uppercase;
+        font-size: 1ch;
+        color: green;
     }
 
     @media (min-width: 1550px) {
