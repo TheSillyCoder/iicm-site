@@ -11,13 +11,14 @@ const events = eventFiles.map((e) => (e.frontmatter.name));
 const numEvents = events.length;
 const instCodes = ["iiserk", "iiserp", "iiserm", "iiserb", "iisertvm", "iisertir", "iiserbmp", "iisc", "niser"];
 const institutes = ["IISER Kolkata", "IISER Pune", "IISER Mohali", "IISER Bhopal", "IISER TVM", "IISER Triupati", "IISER Berhampore", "IISc Bengaluru", "NISER Bhubaneshwar"];
+const logos = ["/iiserk.png", "/iiser-pune.png", "/iiserm.png", "/iiserb.png", "/iisertvm.png", "/iisertirupati.png", "/iiserbpr.svg", "/iisc.jpg", "/niser.svg"]
 const numInst = instCodes.length;
 
 const scores = instCodes.map((ins) => (eventFiles.map((e) => Math.max(Number(e["frontmatter"][ins]), 0))));
 
 const totals = scores.map((score) => score.reduce((partialSum, a) => partialSum + a, 0));
 
-var board = institutes.map((ins, i) => ([ins, totals[i]]));
+var board = institutes.map((ins, i) => ([ins, totals[i], logos[i]]));
 const compare = (a: (string | number)[], b: (string | number)[]) => {
     if (a[1] >= b[1]) return -1;
     else return 1;
@@ -26,7 +27,7 @@ board.sort(compare);
 
 var eventBoards = []; 
 for (let i = 0; i < numEvents; ++i) {
-  eventBoards.push(instCodes.filter((e) => eventFiles[i]["frontmatter"][e] >= 0).map((id, j) => ([institutes[j], eventFiles[i]["frontmatter"][id]])));
+  eventBoards.push(instCodes.filter((e) => eventFiles[i]["frontmatter"][e] >= 0).map((id, j) => ([institutes[j], eventFiles[i]["frontmatter"][id], logos[j]])));
 }
 for (let i = 0; i < numEvents; ++i) {
   eventBoards[i].sort(compare);
@@ -46,7 +47,7 @@ for (let i = 0; i < numEvents; ++i) {
       <li class="thead"> <span class="institute"> Institute </span> <span class="score">Score</span></li>
       {
         board.map((rec) => (
-              <li> <span class="institute">{rec[0]}</span> <span class="score">{rec[1]}</span></li>
+              <li> <span class="institute"><span class="board-logo"><img src={rec[2]}/></span>{rec[0]}</span> <span class="score">{rec[1]}</span></li>
         ))
       }
     </ul>
@@ -56,7 +57,7 @@ for (let i = 0; i < numEvents; ++i) {
           <li class="thead"> <span class="institute"> Institute </span> <span class="score">Score</span></li>
           {
             eventBoard.map((rec) => (
-              <li> <span class="institute">{rec[0]}</span> <span class="score">{rec[1]}</span></li>
+              <li> <span class="institute"><span class="board-logo"><img src={rec[2]}/></span>{rec[0]}</span> <span class="score">{rec[1]}</span></li>
             )) 
           }
         </ul>
@@ -109,7 +110,18 @@ for (let i = 0; i < numEvents; ++i) {
     border: 2px solid var(--accent-color-2);
   }
   .score {
-    text-align: center;
+    display: grid;
+    place-items: center;
+  }
+
+  .board-logo {
+    display: none;
+  }
+
+  .institute {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    place-items: center;
   }
 
   @media (min-width: 850px) {
@@ -126,6 +138,19 @@ for (let i = 0; i < numEvents; ++i) {
     .institute{
       text-align: center;
     } 
+    .board-logo {
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      border-radius: 100%;
+      display: grid;
+      place-items: center;
+    }
+    .board-logo img {
+      background-color: white;
+      max-width: 30px;
+      max-height: 30px;
+    }
   }
 </style>
 <script>
