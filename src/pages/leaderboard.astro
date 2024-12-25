@@ -44,7 +44,7 @@ for (let i = 0; i < numEvents; ++i) {
       }
     </select>
     <ul class="board" id="total">
-      <li class="thead"> <span class="institute"> Institute </span> <span class="score">Score</span></li>
+      <li class="thead"> <span class="institute"> <p></p>Institute </span> <span class="score">Score</span></li>
       {
         board.map((rec) => (
               <li> <span class="institute"><span class="board-logo"><img src={rec[2]}/></span>{rec[0]}</span> <span class="score">{rec[1]}</span></li>
@@ -54,7 +54,7 @@ for (let i = 0; i < numEvents; ++i) {
     {
       eventBoards.map((eventBoard, i) => (
         <ul class="board event" id={"event"+i}>
-          <li class="thead"> <span class="institute"> Institute </span> <span class="score">Score</span></li>
+          <li class="thead"> <span class="institute"> <p></p>Institute </span> <span class="score">Score</span></li>
           {
             eventBoard.map((rec) => (
               <li> <span class="institute"><span class="board-logo"><img src={rec[2]}/></span>{rec[0]}</span> <span class="score">{rec[1]}</span></li>
