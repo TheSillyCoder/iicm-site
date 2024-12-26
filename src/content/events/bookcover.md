@@ -3,6 +3,7 @@ name: Book Cover Designing
 date: Dec 27
 time: 10:00AM
 end: 11:00 AM
+venue: Lecture Hall Complex
 iiserk: 0
 iiserp: 0
 iiserm: 0

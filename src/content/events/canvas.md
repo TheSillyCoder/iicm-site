@@ -3,6 +3,7 @@ name: Canvas Painting
 date: Dec 27
 time: 11:00 AM
 end: 1:00 PM
+venue: SAC Building
 iiserk: 0
 iiserp: 0
 iiserm: 0
