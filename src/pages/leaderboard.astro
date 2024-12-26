@@ -30,6 +30,7 @@ for (let i = 0; i < numEvents; ++i) {
 for (let i = 0; i < numEvents; ++i) {
   eventBoards[i].sort(compare);
 }
+const overallPodium = false;
 ---
 
 <BaseLayout title= { pageTitle }>
@@ -42,11 +43,13 @@ for (let i = 0; i < numEvents; ++i) {
       }
     </select>
     <div class="podium" id="total-podium">
-      <span class="pod">
-      <span class="second"><img src="/silver.png" class="position"><span class="pod-logo"><img src={board[1][2]}/></span> {board[1][0]}</span>
-      <span class="first"><img src="/gold.png" class="position"><span class="pod-logo"><img src={board[0][2]}/></span>{board[0][0]}</span>
-      <span class="third"><img src="/bronze.png" class="position"><span class="pod-logo"><img src={board[2][2]}/></span>{board[2][0]}</span>
-      </span>
+      { overallPodium &&
+        <span class="pod">
+          <span class="second"><img src="/silver.png" class="position"><span class="pod-logo"><img src={board[1][2]}/></span> {board[1][0]}</span>
+          <span class="first"><img src="/gold.png" class="position"><span class="pod-logo"><img src={board[0][2]}/></span>{board[0][0]}</span>
+          <span class="third"><img src="/bronze.png" class="position"><span class="pod-logo"><img src={board[2][2]}/></span>{board[2][0]}</span>
+        </span>
+      }
     </div>
     <ul class="board" id="total">
       <li class="thead"> <span class="institute"> <p></p>Institute </span> <span class="score">Score</span></li>
@@ -57,13 +60,15 @@ for (let i = 0; i < numEvents; ++i) {
       }
     </ul>
     {
-      eventBoards.map((eventBoard, i) => (
+      eventBoards.map((eventBoard, i) => ( 
       <div class="podium" id={"podium"+i}>
-      <span class="pod">
-      <span class="second"><img src="/silver.png" class="position"><span class="pod-logo"><img src={eventBoard[1][2]}/></span> {eventBoard[1][0]}</span>
-      <span class="first"><img src="/gold.png" class="position"><span class="pod-logo"><img src={eventBoard[0][2]}/></span>{eventBoard[0][0]}</span>
-      <span class="third"><img src="/bronze.png" class="position"><span class="pod-logo"><img src={eventBoard[2][2]}/></span>{eventBoard[2][0]}</span>
-      </span>
+        { eventFiles[i].frontmatter.status === 'scored' &&
+          <span class="pod">
+            <span class="second"><img src="/silver.png" class="position"><span class="pod-logo"><img src={eventBoard[1][2]}/></span> {eventBoard[1][0]}</span>
+            <span class="first"><img src="/gold.png" class="position"><span class="pod-logo"><img src={eventBoard[0][2]}/></span>{eventBoard[0][0]}</span>
+            <span class="third"><img src="/bronze.png" class="position"><span class="pod-logo"><img src={eventBoard[2][2]}/></span>{eventBoard[2][0]}</span>
+          </span>
+        }
       </div>
         <ul class="board event" id={"event"+i}>
           <li class="thead"> <span class="institute"> <p></p>Institute </span> <span class="score">Score</span></li>
@@ -210,17 +215,17 @@ for (let i = 0; i < numEvents; ++i) {
     if (sel === -1)  {
       const currentBoard = document.querySelector("#total");
       currentBoard?.setAttribute("style", "display: block");
-      // const currentPodium = document.querySelector("#total-podium");
-      // currentPodium?.setAttribute("style", "display: block");
+      const currentPodium = document.querySelector("#total-podium");
+      currentPodium?.setAttribute("style", "display: block");
     } else {
       const currentBoard = document.querySelector("#event"+sel);
       currentBoard?.setAttribute("style", "display: block");
-      // const currentPodium = document.querySelector("#podium"+sel);
-      // currentPodium?.setAttribute("style", "display: block;");
+      const currentPodium = document.querySelector("#podium"+sel);
+      currentPodium?.setAttribute("style", "display: block;");
 
     }
   });
   eBoards.forEach((b) => b.setAttribute("style", "display: none;"));
   allPodiums.forEach((p) => p.setAttribute("style", "display: none;"));
-  // document.querySelector("#total-podium")?.setAttribute("style", "display: block;");
+  document.querySelector("#total-podium")?.setAttribute("style", "display: block;");
 </script>
