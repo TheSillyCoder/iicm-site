@@ -41,6 +41,13 @@ for (let i = 0; i < numEvents; ++i) {
         events.map((e) => (<option value={e}>{e}</option>))
       }
     </select>
+    <div class="podium" id="total-podium">
+      <span class="pod">
+      <span class="second"><img src="/silver.png" class="position"><span class="pod-logo"><img src={board[1][2]}/></span> {board[1][0]}</span>
+      <span class="first"><img src="/gold.png" class="position"><span class="pod-logo"><img src={board[0][2]}/></span>{board[0][0]}</span>
+      <span class="third"><img src="/bronze.png" class="position"><span class="pod-logo"><img src={board[2][2]}/></span>{board[2][0]}</span>
+      </span>
+    </div>
     <ul class="board" id="total">
       <li class="thead"> <span class="institute"> <p></p>Institute </span> <span class="score">Score</span></li>
       {
@@ -51,6 +58,13 @@ for (let i = 0; i < numEvents; ++i) {
     </ul>
     {
       eventBoards.map((eventBoard, i) => (
+      <div class="podium" id={"podium"+i}>
+      <span class="pod">
+      <span class="second"><img src="/silver.png" class="position"><span class="pod-logo"><img src={eventBoard[1][2]}/></span> {eventBoard[1][0]}</span>
+      <span class="first"><img src="/gold.png" class="position"><span class="pod-logo"><img src={eventBoard[0][2]}/></span>{eventBoard[0][0]}</span>
+      <span class="third"><img src="/bronze.png" class="position"><span class="pod-logo"><img src={eventBoard[2][2]}/></span>{eventBoard[2][0]}</span>
+      </span>
+      </div>
         <ul class="board event" id={"event"+i}>
           <li class="thead"> <span class="institute"> <p></p>Institute </span> <span class="score">Score</span></li>
           {
@@ -121,7 +135,43 @@ for (let i = 0; i < numEvents; ++i) {
     grid-template-columns: 1fr 5fr;
     place-items: center;
   }
+  .pod {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+    place-items: center;
+  }
+  .position {
+    max-height: 100px;
+  }
+  .second .position {
+    height: 80px;
+  }
+  .third .position {
+    height: 60px;
+  }
+  .first, .second, .third {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    text-align: center;
+  }
 
+  .pod-logo {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .pod-logo img {
+    background-color: white;
+    max-width: 30px;
+    max-height: 30px;
+  }
   @media (min-width: 850px) {
     .thead {
       border: none;
@@ -155,18 +205,26 @@ for (let i = 0; i < numEvents; ++i) {
   const eBoards = document.querySelectorAll(".event");
   const overall = document.querySelector("#total");
   const allBoards = document.querySelectorAll(".board");
+  const allPodiums= document.querySelectorAll(".podium")
   const cat = document.querySelector("select");
   cat?.addEventListener("change", (e) => {
     const sel = cat.selectedIndex - 1;
     allBoards.forEach((b) => b.setAttribute("style", "display: none;"));
+    allPodiums.forEach((p) => p.setAttribute("style", "display: none;"));
     if (sel === -1)  {
       const currentBoard = document.querySelector("#total");
       currentBoard?.setAttribute("style", "display: block");
+      // const currentPodium = document.querySelector("#total-podium");
+      // currentPodium?.setAttribute("style", "display: block");
     } else {
       const currentBoard = document.querySelector("#event"+sel);
       currentBoard?.setAttribute("style", "display: block");
+      // const currentPodium = document.querySelector("#podium"+sel);
+      // currentPodium?.setAttribute("style", "display: block;");
 
     }
   });
   eBoards.forEach((b) => b.setAttribute("style", "display: none;"));
+  allPodiums.forEach((p) => p.setAttribute("style", "display: none;"));
+  // document.querySelector("#total-podium")?.setAttribute("style", "display: block;");
 </script>
