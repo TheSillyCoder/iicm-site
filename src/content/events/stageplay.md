@@ -3,7 +3,7 @@ name: Stage Play
 time: 9:00 AM
 end: 4:00 PM
 date: Dec 28
-venue: RNT Auditorium
+venue: RN Tagore Auditorium
 iiserk: 0
 iiserp: 0
 iiserm: 0

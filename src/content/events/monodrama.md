@@ -2,7 +2,7 @@
 name: Monodrama
 date: Dec 27
 time: 9:00 AM
-venue: RNT Auditorium
+venue: RN Tagore Auditorium
 end: 11:00 AM
 iiserk: 0
 iiserp: 0

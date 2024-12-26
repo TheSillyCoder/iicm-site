@@ -3,7 +3,7 @@ name: Opening Ceremony
 time: 10:00 AM
 endtime: 12:00 PM
 date: Dec 26
-venue: RNT Auditorium
+venue: RN Tagore Auditorium
 iiserk: 0
 iiserp: 0
 iiserm: 0

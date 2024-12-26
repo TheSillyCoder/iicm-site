@@ -1,6 +1,6 @@
 ---
 name: Closing Ceremony
-venue: RNT Auditorium
+venue: RN Tagore Auditorium
 date: Dec 29
 time: 7:00 PM
 iiserk: 0

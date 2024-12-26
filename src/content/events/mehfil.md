@@ -3,7 +3,7 @@ name: Mehfil
 date: Dec 27
 time: 12:00 Noon
 end: 7:00 PM
-venue: RNT Auditorium
+venue: RN Tagore Auditorium
 iiserk: 0
 iiserp: 0
 iiserm: 0

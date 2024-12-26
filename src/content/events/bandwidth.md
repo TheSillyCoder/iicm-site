@@ -1,7 +1,7 @@
 ---
 name: Bandwidth (Screening)
 date: Dec 27
-venue: MN Saha
+venue: MN Saha Auditorium
 time: 12:00 Noon
 end: 7:00 PM
 iiserk: 0

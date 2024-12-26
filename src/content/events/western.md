@@ -1,6 +1,6 @@
 ---
 name: Western Instrumental
-venue: RNT Auditorium
+venue: RN Tagore Auditorium
 time: 9:00 AM
 end: 1:00 PM
 date: Dec 29

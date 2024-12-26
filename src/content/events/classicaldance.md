@@ -3,7 +3,7 @@ name: Classical Dance
 time: 12:00 Noon
 end: 2:00 PM
 date: Dec 26
-venue: RNT Auditorium
+venue: RN Tagore Auditorium
 iiserk: 0
 iiserp: 0
 iiserm: 0

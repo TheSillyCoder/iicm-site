@@ -2,7 +2,7 @@
 name: Duet Singing
 time: 3:00 PM
 end: 5:00 PM
-venue: RNT Auditorium
+venue: RN Tagore Auditorium
 date: Dec 26
 iiserk: 0
 iiserp: 0
