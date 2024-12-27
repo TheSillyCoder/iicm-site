@@ -4,6 +4,9 @@ time: 12:00 Noon
 end: 2:00 PM
 date: Dec 26
 venue: RN Tagore Auditorium
+status: scored
+second: 2
+third: 2
 iiserk: 0
 iiserp: 500
 iiserm: 0

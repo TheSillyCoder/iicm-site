@@ -64,9 +64,21 @@ const overallPodium = false;
       <div class="podium" id={"podium"+i}>
         { eventFiles[i].frontmatter.status === 'scored' &&
           <span class="pod">
-            <span class="second"><img src="/silver.png" class="position"><span class="pod-logo"><img src={eventBoard[1][2]}/></span> {eventBoard[1][0]}</span>
-            <span class="first"><img src="/gold.png" class="position"><span class="pod-logo"><img src={eventBoard[0][2]}/></span>{eventBoard[0][0]}</span>
-            <span class="third"><img src="/bronze.png" class="position"><span class="pod-logo"><img src={eventBoard[2][2]}/></span>{eventBoard[2][0]}</span>
+            {
+              eventBoard.slice(Number(eventFiles[i].frontmatter.first ? eventFiles[i].frontmatter.first : 1), Number(eventFiles[i].frontmatter.first ? eventFiles[i].frontmatter.first : 1) + Number(eventFiles[i].frontmatter.second ? eventFiles[i].frontmatter.second : 1)).map((e, k) => (
+              <span class="second"><img src="/silver.png" class="position"><span class="pod-logo"><img src={e[2]}/></span> {e[0]}</span>
+              ))
+            }
+            {
+              eventBoard.slice(0, 0 + Number(eventFiles[i].frontmatter.first ? eventFiles[i].frontmatter.first : 1)).map((e, k) => (
+              <span class="first"><img src="/gold.png" class="position"><span class="pod-logo"><img src={e[2]}/></span>{e[0]}</span>
+              ))
+            }
+            {
+              eventBoard.slice(Number(eventFiles[i].frontmatter.first ? eventFiles[i].frontmatter.first : 1) + Number(eventFiles[i].frontmatter.second ? eventFiles[i].frontmatter.second : 1), Number(eventFiles[i].frontmatter.first ? eventFiles[i].frontmatter.first : 1) + Number(eventFiles[i].frontmatter.second ? eventFiles[i].frontmatter.second : 1) + Number(eventFiles[i].frontmatter.third ? eventFiles[i].frontmatter.third : 1)).map((e, k) => (
+                <span class="third"><img src="/bronze.png" class="position"><span class="pod-logo"><img src={e[2]}/></span>{e[0]}</span>
+              ))
+            }
           </span>
         }
       </div>
@@ -153,10 +165,11 @@ const overallPodium = false;
     text-align: center;
   }
   .pod {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
     gap: 1em;
-    place-items: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
   .position {
     max-height: 100px;
@@ -189,6 +202,16 @@ const overallPodium = false;
     max-width: 30px;
     max-height: 30px;
   }
+
+  .first {
+    order: 1;
+  }
+  .second {
+    order: 2;
+  }
+  .third {
+    order: 3;
+  }
   @media (min-width: 850px) {
     .thead {
       border: none;
@@ -200,6 +223,18 @@ const overallPodium = false;
     li:hover {
       border-color: var(--accent-color);
     }
+    .pod {
+      flex-direction: row;
+    }
+  .first {
+    order: 2;
+  }
+  .second {
+    order: 1;
+  }
+  .third {
+    order: 3;
+  }
   }
 </style>
 <script>
