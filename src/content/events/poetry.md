@@ -4,6 +4,7 @@ venue: Lecture Hall Complex
 time: 9:00 AM
 end: 9:00 PM
 date: Dec 27
+status: scored
 iiserk: 150
 iiserp: 0
 iiserm: 0
