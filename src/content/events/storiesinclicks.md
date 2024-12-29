@@ -3,14 +3,14 @@ name: Stories in Clicks
 venue: MN Saha Auditorium
 date: Dec 29
 time: 9:00 AM
-iiserk: 0
-iiserp: 0
-iiserm: 0
+iiserk: 300
+iiserp: 300
+iiserm: 1000
 iisertvm: 0
 iiserbmp: 0
-iiserb: 0
-iisertir: 0
-iisc: 0
+iiserb: 600
+iisertir: 600
+iisc: 300
 cebs: 0
 niser: 0
 ---
