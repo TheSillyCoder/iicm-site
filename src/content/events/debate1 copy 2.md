@@ -4,7 +4,6 @@ date: Dec 28
 venue: Lecture Hall Complex
 time: 12:00 Noon
 end: 1:00 PM
-status: scored
 third: 0
 iiserk: 0
 iiserp: 600
