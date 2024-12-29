@@ -3,11 +3,12 @@ name: Design Architect
 venue: MN Saha Auditorium
 date: Dec 29
 time: 11:00 AM
-iiserk: 0
+status: scored
+iiserk: 150
 iiserp: 0
-iiserm: 0
+iiserm: 300
 iisertvm: 0
-iiserbmp: 0
+iiserbmp: 500
 iiserb: 0
 iisertir: 0
 iisc: 0
