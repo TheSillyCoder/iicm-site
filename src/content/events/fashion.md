@@ -1,6 +1,6 @@
 ---
 name: Fashion Show
-venue: Newly paved roads between ICVS and LHC
+venue: Road between ICVS and LHC
 date: Dec 29
 time: 2:00 PM
 iiserk: 0
