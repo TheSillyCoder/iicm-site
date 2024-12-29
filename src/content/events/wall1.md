@@ -4,6 +4,7 @@ time: 2:00 PM
 end: 9:00 PM
 date: Dec 26
 venue: NSCB-ICVS Basement Walls
+status: scored
 iiserk: 0
 iiserp: 600
 iiserm: 0
