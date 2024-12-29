@@ -3,6 +3,7 @@ name: Fashion Show (Metamorphosis)
 venue: Road between ICVS and LHC
 date: Dec 29
 time: 2:00 PM
+status: scored
 iiserk: 120
 iiserp: 0
 iiserm: 0
