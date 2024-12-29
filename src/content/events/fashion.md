@@ -1,6 +1,6 @@
 ---
 name: Fashion Show
-venue: MN Saha Auditorium
+venue: Newly paved roads between ICVS and LHC
 date: Dec 29
 time: 2:00 PM
 iiserk: 0
