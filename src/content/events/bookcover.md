@@ -4,15 +4,14 @@ date: Dec 27
 time: 10:00AM
 end: 11:00 AM
 venue: Lecture Hall Complex
-status: scored
 iiserk: 0
-iiserp: 500
+iiserp: 0
 iiserm: 0
-iisertvm: 150
+iisertvm: 0
 iiserbmp: 0
 iiserb: 0
 iisertir: 0
-iisc: 300
+iisc: 0
 cebs: 0
 niser: 0
 ---
