@@ -4,10 +4,11 @@ date: Dec 27
 time: 9:00 AM
 venue: RN Tagore Auditorium
 end: 11:00 AM
-iiserk: 0
-iiserp: 0
+status: scored
+iiserk: 500
+iiserp: 150
 iiserm: 0
-iisertvm: 0
+iisertvm: 300
 iiserbmp: 0
 iiserb: 0
 iisertir: 0
