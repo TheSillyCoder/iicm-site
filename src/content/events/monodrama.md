@@ -6,9 +6,9 @@ venue: RN Tagore Auditorium
 end: 11:00 AM
 status: scored
 iiserk: 500
-iiserp: 150
+iiserp: 300
 iiserm: 0
-iisertvm: 300
+iisertvm: 150
 iiserbmp: 0
 iiserb: 0
 iisertir: 0
