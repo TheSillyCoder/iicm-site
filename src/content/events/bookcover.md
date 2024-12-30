@@ -6,13 +6,13 @@ end: 11:00 AM
 venue: Lecture Hall Complex
 status: scored
 iiserk: 0
-iiserp: 500
+iiserp: 300
 iiserm: 0
 iisertvm: 150
 iiserbmp: 0
 iiserb: 0
 iisertir: 0
-iisc: 300
+iisc: 500
 cebs: 0
 niser: 0
 ---
